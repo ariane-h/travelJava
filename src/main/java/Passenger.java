@@ -12,7 +12,9 @@ public class Passenger {
         return name;
     }
 
-    public int getNumOfBags() {
+    public int countBags() {
         return numOfBags;
     }
+
+
 }
