@@ -8,6 +8,7 @@ public class Flight {
     private Airport destinationAirport;
     private Airport departureAirport;
     private String departureTime;
+    private int availableSeats;
 
     public Flight( Plane plane, String flightNumber, Airport destinationAirport, Airport departureAirport, String departureTime) {
         this.bookedPassengers = new ArrayList<Passenger>();
@@ -16,10 +17,15 @@ public class Flight {
         this.destinationAirport = destinationAirport;
         this.departureAirport = departureAirport;
         this.departureTime = departureTime;
+        this.availableSeats = plane.getCapacity();
     }
 
     public ArrayList<Passenger> getBookedPassengers() {
         return bookedPassengers;
+    }
+
+    public int getBookedPassengersCount() {
+        return bookedPassengers.size();
     }
 
     public Plane getPlane() {
@@ -41,4 +47,15 @@ public class Flight {
     public String getDepartureTime() {
         return departureTime;
     }
+
+    public int getAvailableSeats() {
+        return this.availableSeats - this.getBookedPassengersCount();
+    }
+
+    public void addPassenger(Passenger passenger) {
+        if (this.availableSeats > bookedPassengers.size()) {
+            this.bookedPassengers.add(passenger);
+        }
+    }
+
 }
