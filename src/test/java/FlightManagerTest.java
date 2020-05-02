@@ -40,5 +40,15 @@ public class FlightManagerTest {
         assertEquals(3, flight1Manager.getPassengerBagCount());
     }
 
+    @Test
+    public void canCheckBagWeightPP(){
+        assertEquals(1.25, flight1Manager.getBagWeightPP(), 0.01 );
+    }
+
+    @Test
+    public void checkAvailableReservationWeight(){
+        flight1.addPassenger(passenger1);
+        assertEquals( 23.75 ,flight1Manager.getAvailableReservationWeight(), 0.01);
+    }
 
 }

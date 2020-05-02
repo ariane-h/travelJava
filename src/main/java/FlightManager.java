@@ -35,6 +35,20 @@ public class FlightManager {
         } return bags;
     }
 
-    
+    public double getBagWeightPP(){
+        Plane plane = this.flight.getPlane();
+        double capacity = plane.getCapacity();
+        double reservedWeight = this.getReservedWeight();
+        return reservedWeight / capacity;
+    }
+
+    public double getAvailableReservationWeight(){
+        double passengerBags = this.getPassengerBagCount();
+        double singleBagWeight = this.getBagWeightPP();
+        double reservedWeight = this.reservedWeight;
+
+        double totalPassengerBagWeight = passengerBags * singleBagWeight;
+        return reservedWeight - totalPassengerBagWeight;
+    }
 
 }
