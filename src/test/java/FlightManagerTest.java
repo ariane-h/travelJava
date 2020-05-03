@@ -46,7 +46,7 @@ public class FlightManagerTest {
     }
 
     @Test
-    public void checkAvailableReservationWeight(){
+    public void checkRemainingReservationWeight(){
         flight1.addPassenger(passenger1);
         assertEquals( 23.75 ,flight1Manager.getAvailableReservationWeight(), 0.01);
     }
